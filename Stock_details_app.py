@@ -28,6 +28,7 @@ def create_df(response_text: str) -> pd.DataFrame:
 
 
 if __name__ == '__main__':
+    st.title("Crypto price tracker")
     user_input = st.text_input("Enter the coin you want to look for")
     if st.button("Get", on_click= get_coin_data, kwargs={"coin_type":user_input, "date_range":"364"}):
 

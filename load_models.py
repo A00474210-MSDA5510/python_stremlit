@@ -29,7 +29,6 @@ def predict_image(input_image):
         is_empty = all(pixel == 0 or pixel == 255 for pixel in alpha_channel.getdata(0))
         if is_empty:
             img_to_predict = classify_image_RGB(img)
-            st.write("RGBAAAAAAAA")
         else:
             img_to_predict = classify_image_RGBA(img)
     prediction_result = model.predict(img_to_predict)

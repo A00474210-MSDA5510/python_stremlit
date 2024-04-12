@@ -77,7 +77,7 @@ def predict_image(input_image):
     image_array = image_array.reshape((1, 28, 28, 1))
 
     my_prediction = model.predict(image_array)
-    predicted_class = np.argmax(my_prediction, axis=1)
+    predicted_class = np.argmax(my_prediction)
     return predicted_class
 
 

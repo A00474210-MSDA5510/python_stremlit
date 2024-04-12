@@ -6,7 +6,7 @@ import requests
 from io import BytesIO
 
 # Load the trained model
-model = load_model("mnist_model.h5")
+model = load_model("final_model.h5")
 
 # Function to preprocess the image
 def preprocess_image(image_path):

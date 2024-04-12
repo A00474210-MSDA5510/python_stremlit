@@ -34,6 +34,9 @@ def add_df(random_stuff):
 
 
 def plot_df(type, fig):
+    """
+    This is to plot the df and
+    """
     if type < 300:
         for each_df in st.session_state.dfs:
             checkbox_value = st.checkbox(each_df[1], value=True, key=each_df[1])
@@ -59,7 +62,7 @@ def clear_data_and_reset():
 
 def predict_image(input_image):
     image = input_image.resize((28, 28))
-    model = tf.keras.models.load_model("mnist_model.h5")
+    model = tf.keras.models.load_model("final_model.h5")
     if image.mode == 'RGBA':
         white_canvas = Image.new('RGB', image.size, '#aaa')
         white_canvas.paste(image, mask=image.split()[3])
@@ -80,7 +83,7 @@ def predict_image(input_image):
 
 def question_1():
     st.title("Crypto price tracker")
-    user_input = st.text_input("Enter the coin you want to look for")
+    user_input = st.text_input("Enter the coin you want to look for").lower()
     if st.button("Get"):
         response = get_coin_data(user_input, 364)
 
@@ -116,10 +119,10 @@ def question_1():
 
             fig.add_trace(
                 go.Scatter(x=[max_price_timestamp], y=[max_price], mode='markers+text', marker=dict(color='red', size=10),
-                           name='Highest Price', text=[f"${max_price/1000:.2f}k"], textposition="top center"))
+                           name='Highest Price', text=[f"${max_price:.2f}$"], textposition="top center"))
             fig.add_trace(
                 go.Scatter(x=[min_price_timestamp], y=[min_price], mode='markers+text', marker=dict(color='black', size=10),
-                           name='Lowest Price', text=[f"${min_price/1000000:.2f}m"], textposition="top center"))
+                           name='Lowest Price', text=[f"${min_price:.2f}$"], textposition="top center"))
 
             fig.add_trace(
                 go.Scatter(x=[max_trade_timestamp], y=[max_trade_price], mode='markers+text', marker=dict(symbol='triangle-up', color='orange', size=15),

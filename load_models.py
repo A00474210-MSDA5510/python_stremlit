@@ -8,7 +8,7 @@ import streamlit as st
 
 def predict_image(input_image):
     image = input_image.resize((28, 28))
-    model = tf.keras.models.load_model("mnist_model.h5")
+    model = tf.keras.models.load_model("final_model.h5")
     if image.mode == 'RGBA':
         white_canvas = Image.new('RGB', image.size, '#aaa')
         white_canvas.paste(image, mask=image.split()[3])

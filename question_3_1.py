@@ -3,7 +3,7 @@ import tensorflow as tf
 import cv2
 import matplotlib.pyplot as plt
 
-model = tf.keras.models.load_model("mnist_model.h5")
+model = tf.keras.models.load_model("final_model.h5")
 file = input("enter image path")
 img = cv2.imread(file)[:, :, 0]
 img = np.invert(np.array([img]))

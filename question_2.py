@@ -29,7 +29,7 @@ def add_df(random_stuff):
     st.session_state.dfs.append(random_stuff)
 
 
-def plot_df(type):
+def plot_df(type, fig):
     if type < 300:
         for each_df in st.session_state.dfs:
             checkbox_value = st.checkbox(each_df[1], value=True, key=each_df[1])
@@ -52,6 +52,7 @@ def clear_data_and_reset():
     # Clear all session state variables
     st.session_state.clear()
     st.experimental_rerun()
+
 
 
 if __name__ == '__main__':
@@ -82,7 +83,7 @@ if __name__ == '__main__':
         options = {"1 week":7, "1 month":30, "1 year":364}
         plot_type = st.radio("Select Plot Type", options)
         fig = go.Figure()
-        plot_df(options[plot_type])
+        plot_df(options[plot_type], fig)
         st.plotly_chart(fig, use_container_width=True)
         st.write("Enther another coin and fetch again!")
         if st.button("Clear Data"):

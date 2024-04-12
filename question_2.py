@@ -84,6 +84,7 @@ if __name__ == '__main__':
         fig = go.Figure()
         plot_df(options[plot_type])
         st.plotly_chart(fig, use_container_width=True)
+        st.write("Enther another coin and fetch again!")
         if st.button("Clear Data"):
             clear_data_and_reset()
 

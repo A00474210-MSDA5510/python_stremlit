@@ -67,9 +67,7 @@ def predict_image(input_image):
         white_canvas = Image.new('RGB', image.size, '#aaa')
         white_canvas.paste(image, mask=image.split()[3])
         image = white_canvas
-    st.image(image, caption='Uploaded Image', use_column_width=True)
     st.write("Classifying...")
-
     image = image.convert('L')
     image = ImageOps.invert(image)
     img_inv = image.resize((28, 28))

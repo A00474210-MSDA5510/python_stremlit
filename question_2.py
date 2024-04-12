@@ -56,7 +56,7 @@ def clear_data_and_reset():
 
 if __name__ == '__main__':
     # Button to fetch data
-
+    st.title("Crypto Price Compare")
     user_input = st.text_input("Enter the coin you want to look for").lower()
 
     if "dfs" not in st.session_state:
